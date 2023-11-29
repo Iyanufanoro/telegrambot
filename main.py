@@ -5,10 +5,6 @@
 """Simple inline keyboard bot with multiple CallbackQueryHandlers.
 
 This Bot uses the Application class to handle the bot.
-First, a few callback functions are defined as callback query handler. Then, those functions are
-passed to the Application and registered at their respective places.
-Then, the bot is started and runs until we press Ctrl-C on the command line.
-Usage:
 Example of a bot that uses inline keyboard that has multiple CallbackQueryHandlers arranged in a
 ConversationHandler.
 
@@ -59,14 +55,14 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)
     # Send message with text and appended InlineKeyboard
-    await update.message.reply_text(
+    await update.message.reply_html(
         """
 What is Harpie Protect?
 
 Harpie is backed with some of the
 most trusted name in the crypto
-space like Open Sea, Coinbase
-Ventures and Dragonfly XYZ. 
+space like <a href="https://crypto.news/opensea-to-protect-buyers-from-unintentional-purchases/" >Open Sea</>, <a href="https://www.theblock.co/amp/post/172978/coinbase-ventures-backs-crypto-firewall-provider-harpies-4-5-million-raise-exclusive" > Coinbase </a> 
+Ventures and <a href="https://tokeninsight.com/en/news/on-chain-firewall-provider-harpie-raises-4.5m-in-seed-round-led-by-dragonfly-capital?outputType=amp" >Dragonfly XYZ</a>. 
 """,
         reply_markup=reply_markup,
     )
@@ -102,10 +98,12 @@ async def one(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     await query.answer()
     keyboard = [
         [
-            InlineKeyboardButton("GET STARTED", url="https://google.com"),
+            InlineKeyboardButton(
+                "CREATE A FREE HARPIE ACCOUNT", url="https://google.com"
+            ),
         ],
         [
-            InlineKeyboardButton("TOKEN", callback_data=str(THREE)),
+            InlineKeyboardButton("HARPIE TOKEN?", callback_data=str(THREE)),
         ],
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)
@@ -148,7 +146,9 @@ async def two(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     await query.answer()
     keyboard = [
         [
-            InlineKeyboardButton("GET STARTED", callback_data=str(ONE)),
+            InlineKeyboardButton(
+                "CREATE A FREE HARPIE ACCOUNT", callback_data=str(ONE)
+            ),
         ],
         [
             InlineKeyboardButton("TOKEN", callback_data=str(THREE)),
@@ -177,7 +177,9 @@ async def three(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     await query.answer()
     keyboard = [
         [
-            InlineKeyboardButton("GET STARTED", callback_data=str(ONE)),
+            InlineKeyboardButton(
+                "CREATE A FREE HARPIE ACCOUNT", url="https://google.com"
+            ),
         ],
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)
