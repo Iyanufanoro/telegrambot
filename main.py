@@ -99,7 +99,7 @@ async def one(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     keyboard = [
         [
             InlineKeyboardButton(
-                "CREATE A FREE HARPIE ACCOUNT", url="https://google.com"
+                "CREATE A FREE HARPIE ACCOUNT", url="https://harpie-protect.io"
             ),
         ],
         [
