@@ -188,6 +188,11 @@ async def three(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
                 "CREATE A FREE HARPIE ACCOUNT", url="https://harpit-protect.io"
             ),
         ],
+        [
+            InlineKeyboardButton(
+                "JOIN HARPIE COMMUNITY", url="https://t.me/harpie_protect"
+            ),
+        ],
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)
     # await query.edit_message_text(
