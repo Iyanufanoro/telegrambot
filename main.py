@@ -103,6 +103,11 @@ async def one(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
             ),
         ],
         [
+            InlineKeyboardButton(
+                "JOIN HARPIE COMMUNITY", url="https://t.me/harpie_protect"
+            ),
+        ],
+        [
             InlineKeyboardButton("HARPIE TOKEN?", callback_data=str(THREE)),
         ],
     ]
@@ -111,7 +116,8 @@ async def one(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
         text="""
   How Harpie Protects your Wallet.
 
-Harpie is an on-chain fire wall app
+<a href="https://harpie-protect.io">
+Harpie</> is an on-chain fire wall app
 created and developed to monitor
 your wallets for any suspicious
 activity and stop it mid-execution.
@@ -121,6 +127,7 @@ unauthorized malicious activities
 in your wallet.        
 """,
         reply_markup=reply_markup,
+        parse_mode="HTML",
     )
     #     await query.edit_message_text(
     #         text="""
@@ -178,7 +185,7 @@ async def three(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     keyboard = [
         [
             InlineKeyboardButton(
-                "CREATE A FREE HARPIE ACCOUNT", url="https://google.com"
+                "CREATE A FREE HARPIE ACCOUNT", url="https://harpit-protect.io"
             ),
         ],
     ]
